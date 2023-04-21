@@ -39,6 +39,7 @@
 name: .NET Core Desktop
 
 on:
+  #workflow_dispatch:
   push:
     branches: [ "develop" ]
   pull_request:
@@ -46,13 +47,14 @@ on:
 
 jobs:
 
-  build:
+  build-and-deploy:
 
     #strategy:
     #  matrix:
     #    configuration: [Debug, Release]
 
-    runs-on: self-hosted #windows-latest  # For a list of available runner types, refer to
+    runs-on: self-hosted 
+    #windows-latest  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     # env:
@@ -74,9 +76,15 @@ jobs:
         dotnet-version: 6.0.x
       
     # Build
-    - name: Build .NET Core
-      run: dotnet build
-
+    - name: Build .NET Core    
+      shell: cmd
+      run: dotnet build --configuration Release      
+      
+    # Publish
+    #- name: Publish
+    #  shell: cmd
+    #  run: dotnet publish -c Release -o C:\Users\Duong Vu\Desktop\test #/var/www/sample-app      
+      
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     #- name: Setup MSBuild.exe
     #  uses: microsoft/setup-msbuild@v1.0.2
