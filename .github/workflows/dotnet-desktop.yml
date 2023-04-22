@@ -78,9 +78,10 @@ jobs:
     # Build
     - name: Build .NET Core    
       shell: cmd
-      run: dotnet build --configuration Release      
+      run: |
+        dir            
       
-    # Publish
+    # Publish dotnet build --configuration Release 
     #- name: Publish
     #  shell: cmd
     #  run: dotnet publish -c Release -o C:\Users\Duong Vu\Desktop\test #/var/www/sample-app      
