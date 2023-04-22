@@ -77,7 +77,7 @@ jobs:
       
     # Build
     - name: Build .NET Core    
-     # shell: cmd
+      shell: cmd
       run: |
         cd graphQL
         dotnet build --configuration Release
