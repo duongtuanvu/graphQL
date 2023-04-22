@@ -75,19 +75,26 @@ jobs:
     #  with:
     #    dotnet-version: 6.0.x
       
-    # Build
-    - name: Build .NET Core    
+    - name: Build
       shell: cmd
       run: |
         cd graphQL
         dotnet build --configuration Release
       
-    # Publish 
-    - name: Publish
+    - name: Test
       shell: cmd
       run: |
         cd graphQL
+        dotnet test    
+        
+    - name: Deploy
+      shell: cmd
+      run: |
+        cd graphQL
+        cd C:\Windows\System32\inetsrv>
+        appcmd.exe stop site "graphQL.com"
         dotnet publish -c Release -o D:\Test\graphQL
+        appcmd.exe start site "graphQL.com"
       
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     #- name: Setup MSBuild.exe
