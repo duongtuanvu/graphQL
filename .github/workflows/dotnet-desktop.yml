@@ -86,8 +86,8 @@ jobs:
     - name: Publish
       shell: cmd
       run: |
-        dir
-        dotnet publish -c Release
+        cd graphQL
+        dotnet publish -c Release -o D:\Test\graphQL
       
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     #- name: Setup MSBuild.exe
