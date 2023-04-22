@@ -77,14 +77,15 @@ jobs:
       
     # Build
     - name: Build .NET Core    
-      shell: cmd
+     # shell: cmd
       run: |
-        dir            
+        cd graphQL
+        dotnet build --configuration Release
       
-    # Publish dotnet build --configuration Release 
-    #- name: Publish
+    # Publish 
+    - name: Publish
     #  shell: cmd
-    #  run: dotnet publish -c Release -o C:\Users\Duong Vu\Desktop\test #/var/www/sample-app      
+      run: dotnet publish -c Release -o C:\Users\Duong Vu\Desktop\test #/var/www/sample-app      
       
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     #- name: Setup MSBuild.exe
