@@ -85,7 +85,7 @@ jobs:
     # Publish 
     - name: Publish
       shell: cmd
-      run: dotnet publish -c Release -o D:\Test  
+      run: dotnet publish -c Release -o .\myapp
       
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     #- name: Setup MSBuild.exe
