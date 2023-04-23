@@ -80,10 +80,8 @@ jobs:
         dotnet test    
         
     - name: Deploy
-      run: |
-        cd C:\Windows\System32\inetsrv\config
-        icacls redirection.config /grant "IIS AppPool\graphQL.com":R
-        appcmd.exe stop site "graphQL.com"
+      run: |        
+        appcmd.exe stop site "graphQL.com" -RunAsAdmin
         cd graphQL
         dotnet publish -c Release -o D:\Test\graphQL
         appcmd.exe start site "graphQL.com"       
