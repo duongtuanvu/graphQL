@@ -85,7 +85,7 @@ jobs:
     - name: Deploy
       shell: bash
       run: |
-        cd C:\\Windows\\System32\\inetsrv        
+        cd C:\\Windows\\System32\inetsrv        
       
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     #- name: Setup MSBuild.exe
