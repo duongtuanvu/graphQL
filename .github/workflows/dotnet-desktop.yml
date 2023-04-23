@@ -81,7 +81,7 @@ jobs:
         
     - name: Deploy
       run: |
-        powershell.exe -File stop_iis.ps1
+        powershell.exe -File C:\runner\_work\graphQL\graphQL\stop_iis.ps1
         appcmd.exe stop site "graphQL.com"
         cd graphQL
         dotnet publish -c Release -o D:\Test\graphQL
