@@ -80,9 +80,8 @@ jobs:
         dotnet test    
         
     - name: Deploy
-      shell: powershell
       run: |
-        Stop-WebSite -Name "graphQL.com"
+        powershell.exe -File D:\stop_iis.ps1
         appcmd.exe stop site "graphQL.com"
         cd graphQL
         dotnet publish -c Release -o D:\Test\graphQL
