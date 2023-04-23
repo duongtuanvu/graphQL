@@ -77,7 +77,13 @@ jobs:
     - name: Test
       run: |
         cd graphQL
-        dotnet test    
+        dotnet test 
+        
+    - name: Deploy to IIS
+      run: |
+        iisreset /stop
+        Copy-Item ./dotnetcorewebapp/* C:/inetpub/wwwroot/dotnetcore-webapp -Recurse -Force
+        iisreset /start
         
     - name: Deploy
       run: |        
