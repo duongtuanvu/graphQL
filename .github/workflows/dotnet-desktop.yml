@@ -81,7 +81,7 @@ jobs:
         
     - name: Deploy
       run: |        
-        c:\windows\system32\inetsrv
+        cd c:\windows\system32\inetsrv
         appcmd.exe stop site "graphQL.com"
         cd graphQL
         dotnet publish -c Release -o D:\Test\graphQL
