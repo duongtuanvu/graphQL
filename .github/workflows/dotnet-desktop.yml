@@ -80,6 +80,7 @@ jobs:
         dotnet test    
         
     - name: Deploy
+      shell: powershell
       run: |
         appcmd.exe stop site "graphQL.com"
         cd graphQL
