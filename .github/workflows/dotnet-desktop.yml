@@ -85,11 +85,9 @@ jobs:
     - name: Deploy
       shell: cmd
       run: |
-        cd C:\Windows\System32\inetsrv
         appcmd.exe stop site "graphQL.com"
-        cd C:\runner\_work\graphQL\graphQL
+        cd graphQL
         dotnet publish -c Release -o D:\Test\graphQL
-        cd C:\Windows\System32\inetsrv
         appcmd.exe start site "graphQL.com"       
       
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
