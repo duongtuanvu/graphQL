@@ -81,7 +81,7 @@ jobs:
         
     - name: Deploy
       run: |        
-        appcmd.exe stop site "graphQL.com" -RunAsAdmin
+        appcmd.exe stop site "graphQL.com"
         cd graphQL
         dotnet publish -c Release -o D:\Test\graphQL
         appcmd.exe start site "graphQL.com"       
