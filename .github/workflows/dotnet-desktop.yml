@@ -53,9 +53,9 @@ jobs:
     #  Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
     #  Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
     
-    defaults:
-      run:
-        shell: cmd
+    #defaults:
+    #  run:
+    #   shell: cmd
         
     steps:
     - name: Checkout
@@ -81,9 +81,7 @@ jobs:
         
     - name: Deploy
       run: |
-        powershell.exe -File C:\runner\_work\graphQL\graphQL\stop_iis.ps1
         appcmd.exe stop site "graphQL.com"
-        cd graphQL
         dotnet publish -c Release -o D:\Test\graphQL
         appcmd.exe start site "graphQL.com"       
       
