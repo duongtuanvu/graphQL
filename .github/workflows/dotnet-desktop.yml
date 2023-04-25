@@ -84,6 +84,7 @@ jobs:
     #appcmd.exe start site "graphQL.com"       
     - name: Deploy
       run: |    
+        Stop-IISSite -Name "Default Web Site"
         cd graphQL
         dotnet publish -c Release -o C:\inetpub\graphQL         
       
