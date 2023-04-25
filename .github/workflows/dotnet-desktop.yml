@@ -87,7 +87,8 @@ jobs:
       run: |    
         appcmd.exe stop site "graphQL.com"
         cd graphQL
-        dotnet publish -c Release -o C:\inetpub\graphQL         
+        dotnet publish -c Release -o C:\inetpub\graphQL .
+        appcmd.exe start site "graphQL.com"
       
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     #- name: Setup MSBuild.exe
