@@ -78,17 +78,21 @@ jobs:
     #  run: |
     #    cd graphQL
     #    dotnet test   
-     
+    
+    - name: Stop iis
+      shell: powershell
+      run: Stop-IISSite -Name "graphQL.com"
+      
     #D:\Test\graphQL 
     #Stop-IISSite -Name "Default Web Site"
     #appcmd.exe stop site "graphQL.com" 
     #appcmd.exe start site "graphQL.com"       
-    - name: Deploy
-      run: |    
-        appcmd.exe stop site "graphQL.com"
-        cd graphQL
-        dotnet publish -c Release -o C:\inetpub\graphQL .
-        appcmd.exe start site "graphQL.com"
+    #- name: Deploy
+    #  run: |    
+    #    appcmd.exe stop site "graphQL.com"
+    #    cd graphQL
+    #    dotnet publish -c Release -o C:\inetpub\graphQL .
+    #    appcmd.exe start site "graphQL.com"
       
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     #- name: Setup MSBuild.exe
